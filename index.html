@@ -2096,27 +2096,7 @@ if(!state.started && !state.introSeen){
 restoreProgress();
 
 })();
-  // Reset Investigation Button
-document.addEventListener("DOMContentLoaded", function () {
-
-    const resetBtn = document.getElementById("resetBtn");
-
-    if (!resetBtn) return;
-
-    resetBtn.addEventListener("click", function () {
-
-        if (!confirm("Reset the investigation and start from the beginning?")) {
-            return;
-        }
-
-        localStorage.clear();
-        sessionStorage.clear();
-
-        location.reload();
-
-    });
-
-});
+ 
 </script>
 </body>
 </html>
