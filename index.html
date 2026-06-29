@@ -900,12 +900,18 @@
       <div class="final-verdict" id="finalVerdict" style="display:none;"></div>
       <div class="whisper" id="whisperMsg">Now... go fix that bio. 😉</div>
       <div class="footer-note">Made with unnecessary dedication by one of your students. 💜</div>
+   <div style="margin-top:25px;">
+    <button id="resetBtn" class="btn btn-primary">
+        🔄 Start Investigation Again
+    </button>
+</div> 
     </div>
   </div>
 
 </div>
 </div>
 
+  
 <div class="toast" id="toast"></div>
 <div class="achievement" id="achievementToast"><span class="ico">🏆</span><span id="achievementText">Achievement</span></div>
 <div class="hidden-context-msg" id="contextMsg">Looking for Developer Tools?</div>
@@ -2092,6 +2098,19 @@ if(!state.started && !state.introSeen){
 restoreProgress();
 
 })();
+  // Reset Investigation Button
+document.getElementById("resetBtn").addEventListener("click", function () {
+
+    if (!confirm("Reset the investigation and start from the beginning?")) {
+        return;
+    }
+
+    // Clear saved progress
+    localStorage.clear();
+
+    // Reload page
+    location.reload();
+});
 </script>
 </body>
 </html>
