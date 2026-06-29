@@ -767,8 +767,6 @@
   <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="12">
 </div>
 
-<button class="reset-btn" id="resetBtn" title="Reset Investigation">↺ reset</button>
-
 <div class="tilt-wrap" id="tiltWrap">
 <div class="app" id="app">
 
@@ -2099,17 +2097,25 @@ restoreProgress();
 
 })();
   // Reset Investigation Button
-document.getElementById("resetBtn").addEventListener("click", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (!confirm("Reset the investigation and start from the beginning?")) {
-        return;
-    }
+    const resetBtn = document.getElementById("resetBtn");
 
-    // Clear saved progress
-    localStorage.clear();
+    if (!resetBtn) return;
 
-    // Reload page
-    location.reload();
+    resetBtn.addEventListener("click", function () {
+
+        if (!confirm("Reset the investigation and start from the beginning?")) {
+            return;
+        }
+
+        localStorage.clear();
+        sessionStorage.clear();
+
+        location.reload();
+
+    });
+
 });
 </script>
 </body>
